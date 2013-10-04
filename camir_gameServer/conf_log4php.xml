@@ -1,0 +1,29 @@
+<configuration xmlns="http://logging.apache.org/log4php/">
+    <appender name="myAppender" class="LoggerAppenderFile">
+        <layout class="LoggerLayoutPattern">
+            <param name="conversionPattern" value="%date [%logger] %message%newline" />
+        </layout>
+        <param name="file" value="../../camir_gameServer.log" />
+    </appender>
+    
+    <logger name="Main">
+            <level value="TRACE" />
+            <appender_ref ref="myAppender" />
+     </logger>
+     <logger name="Module">
+            <level value="TRACE" />
+            <appender_ref ref="myAppender" />
+     </logger>
+     <logger name="Match">
+            <level value="TRACE" />
+            <appender_ref ref="myAppender" />
+     </logger>
+     
+     <logger name="Player">
+            <level value="TRACE" />
+            <appender_ref ref="myAppender" />
+     </logger>
+    <root>
+       
+    </root>
+</configuration>

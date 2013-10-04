@@ -1,0 +1,139 @@
+body {
+    text-align:center;
+    background-image: none;
+    background-repeat: none;
+    font-family: "Trebuchet MS";
+}
+
+.fbButton {
+    border: 0;
+    padding:0;
+    background-image: url('../img/fb_login_small.png');
+    width: 80px;
+    height: 25px;
+}
+#headerImg{
+    float: left;
+}
+
+#univers {
+    position: absolute;
+    top: 1px;
+    left: 1px;
+    width: 800px;
+    margin-left: 200px;
+    display: none;  
+}
+
+
+
+#header{
+     
+    background-color: white; /* fallback flat color */
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid black;
+    margin-left: auto;
+    margin-right: auto;
+        font-size: 14px;
+        max-width: 550px;
+}
+
+.jPlayerHiddenDiv {
+        position: absolute;
+        bottom: 1px;
+        width: 1px;
+        length: 1px;
+}
+
+#header h2 {
+    display:block;
+    margin-left: 200px;
+    
+    color: grey;
+    font-size: 1em;
+}
+
+#page{
+    background-color: white; /* fallback flat color */
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid black;
+max-width: 700px;
+}
+
+#fangformunivers {
+    text-align:left;
+    background-image: none;
+    background-repeat: none;
+    font-family: "Courier New";
+    font-size: 14px;
+    color: #707070;
+}
+
+#fangpage{
+    background-color: white; /* fallback flat color */
+    margin-left: 0;
+    margin-right: auto;
+    padding: 0px;
+    max-width: 500px;
+}
+
+#fangpage p {
+   padding-top:10px;
+   padding-bottom:5px;
+}
+#fangpage select{
+    float: right;
+    font-size: 14px;
+    color: #707070;
+    font-family: "Courier New";
+}
+
+
+.song  button {
+    border: none;
+    background: none;
+    background-image: url('../images/check.png');
+    width: 64px;
+    height: 64px;
+}
+
+.song {
+    margin: 40px;
+    border-left: 5px solid black;
+    padding-left: 20px;
+}
+
+
+.song audio, .song button {
+
+    display: block;
+}
+
+.song audio {
+    width:50%;   
+}
+
+.song button:active {
+    opacity: 0.5;
+    
+}
+
+img.cityuni{
+    height: 50px;
+}
+img.sevdigital{
+    height: 70px;
+}
+
+
+
+/* privacy policy */
+
+#privacy{
+  width: 600px;
+  text-align: justify;
+}

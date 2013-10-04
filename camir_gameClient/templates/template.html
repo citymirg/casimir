@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta property="og:image" content="[CLIENT_PATH]img/speakerabbit75.jpg" />
+    <meta property="og:title" content="Spot The Odd Song Out" />
+    <meta property="og:site_name" content="Spot The Odd Song Out" />
+    <meta property="fb:admins" content="1442898510" />
+    <meta property="og:url" content="[graph_url]" />
+    <meta property="og:description"
+          content="Spot the Odd Song Out is part of a research project at City University London.
+       We are interested in the way you compare music, and how that relates to your
+       musical and cultural background. "/>
+
+    <title>Spot the Odd Song Out</title>
+    <!-- CSS style sheets -->
+    <link href="style/style.css" rel="stylesheet" type="text/css" />
+    
+    [onload;script=jsdeps.php;subtpl]
+    
+</head>
+<body style="max-height:640px; max-width:960px;margin-left:auto; margin-right:auto;">
+    
+<div id="fb-root"></div>
+<script>
+    function mainInit(){
+
+        // start game
+        $(document).ready(function(){
+            // get browser
+            game = new CamirHerd();
+
+        });
+    }
+    
+     function connected(){
+
+     FB.getLoginStatus(function(response) {
+      if (response.status === 'connected') {
+        // the user is logged in and has authenticated your
+        // app, and response.authResponse supplies
+        // the user's ID, a valid access token, a signed
+        // request, and the time the access token
+        // and signed request each expire
+        
+        // update config
+        config.user_id = response.authResponse.userID;
+        config.oauth_token= response.authResponse.accessToken;
+
+        // update fbUserDetails Status in case we have been logged
+        // in at the form page before
+        fbUserDetails.loggedIn = true;
+
+      
+    // Additional initialization code such as adding Event Listeners goes here
+       fbUserDetails.gatherUserInfo(function(){
+       fbUserDetails.fillUserDetails();
+       console.log(userDetails);
+       });
+       
+        /*
+       *  ok, now check for permissions
+       *  @todo: structure : this belongs INTO fbuserDetails
+       */
+       
+       FB.api('/me/permissions', function(response) {
+            // save permissions
+            for (var i in response.data[0]) {
+                fbUserDetails.hasPermissions[i] = true;
+            }
+            console.log(fbUserDetails.hasPermissions);
+        });
+            
+      } else if (response.status === 'not_authorized') {
+        // the user is logged in to Facebook,
+        // but has not authenticated your app
+        fbUserDetails.login(connected);
+      } else {
+        // the user isn't logged in to Facebook.
+        fbUserDetails.login(connected);
+      }
+     });
+    }
+    
+    /*
+    * This is the first exectued line of code afte rloading scripts
+    */
+    console.log("This is STOSO [svnversion]")
+
+
+    /*
+    * compability workarounds in IE console
+    */
+    var alertFallback = false;
+    if (typeof console === "undefined" || typeof console.log === "undefined") {
+     console = {};
+     if (alertFallback) {
+         console.log = function(msg) {
+              alert(msg);
+         };
+     } else {
+         console.log = function() {};
+     }
+    }
+
+    
+    // Set Global Variables
+    var config = {CLIENT_PATH : "[CLIENT_PATH]",
+                  GAME_SERVER_PATH: "[GAME_SERVER_PATH]",
+                  graph_url : "[graph_url]",
+                  fb_login : [fb_login],
+                  oauth_token : "[oauth_token]",
+                  user_id: "[user_id]",
+                  permissions: "[permissions]",
+                  permissions_adv: "[permissions_adv]" ,
+                  app_id:"[app_id]",
+                  auth_url:"[auth_url]"};
+
+     /*
+     * Get the user Details from Json String
+     * As we are using Php 5.2 on the server the json_encode is not very nice
+     * and replaces quotes by the html identifier
+     */
+    var userDetailsEncoded = '[userDetails]';
+    var userDetails = jQuery.parseJSON(userDetailsEncoded.replace(/&quot;/ig,'"'));
+
+    var game = new Object();
+
+    /*
+    * Create the FaceBookHelper Object
+    */
+    fbUserDetails = new FaceBookHelper();
+
+    /*
+    * User Clicked FB Login at data Collection TIme
+    * 
+    * check if we have evidence of the user being logged in
+    *  at the data collection form or via the facebook canvas
+    */
+    if(config.fb_login){
+    // initialise facebook functions
+    //  @todo: EFFICIENCY do this only if the user has logged in in the form page
+    //
+    //  @todo DEBUG : this is deactivated during design tests
+    //                it also since recentyl disables the choose button since
+       FaceBookHelper.prototype.init(function(){
+
+        // process facebook status
+        connected();
+
+        // start the game after we know our facebook status
+        mainInit();
+        });
+    }else{
+         // start the game directly 
+        mainInit();
+    }
+
+
+    </script>
+<!-- 
+ <div id="fb-button" class="fb-login-button" autologoutlink="true" onlogin="connected()">
+</div>
+-->
+<div id ="univers">
+    <div id ="header">
+                
+        <h1>Spot the Odd One Out</h1>
+         <img class="cityuni" alt="City University London"  src="img/city-logo.png">
+        </img>
+        <img class="sevdigital" alt="Audio snippets by 7digital"  src="img/7digital-Logo-Master.png">
+        </img>
+        <h2>Thank you for your participation.</h2>
+        Any questions or remarks? Please send an email: daniel [dot] wolff [dot] 1 [at] city.ac.uk.
+    </div>            
+    
+                
+   <!-- FOOTER included into the page div -->
+        <div id="footer">
+            
+            <p class="error">Client error: [error.val;block=p]</p>
+            
+        </div>     
+    </div>
+</body>
+</html>

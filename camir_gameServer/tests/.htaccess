@@ -1,0 +1,4 @@
+Allow from all
+AuthType Basic
+AuthName "City University MIRG Intranet. Use your SVN credentials to gain access."
+Require user daniel
