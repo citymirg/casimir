@@ -6,10 +6,10 @@ error_reporting(E_ALL);
 
 /** @const string local path to php scripts */
 define("LOCAL_WEB_PATH","C:/mirg_inetpub/wwwroot/" ); 
-define("LOCAL_ROOT_OFFSET","casimir/game/");
+define("LOCAL_ROOT_OFFSET","");
 
-/** @const string external http path to game server php scripts */
-define("EXTERNAL_ROOT_PATH","http://chivm.soi.city.ac.uk/casimir/game/" );
+/** @const string external http path to casimir scripts */
+define("EXTERNAL_WEB_PATH","http://chivm.soi.city.ac.uk/" );
 
 /** @const string facebook application identifier (fb graph id) */
 define("APP_ID","INSERT APP ID HERE"); 
@@ -27,7 +27,7 @@ define("MYSQL_NAME",'casimir_game');
  * End of the user input part
  */
 
-
+define("EXTERNAL_ROOT_PATH",EXTERNAL_WEB_PATH . LOCAL_ROOT_OFFSET );
 define("LOCAL_ROOT_PATH",LOCAL_WEB_PATH. LOCAL_ROOT_OFFSET );
 
 // Paths to Clients, tools, library

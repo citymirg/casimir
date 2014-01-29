@@ -1,16 +1,17 @@
 <?php
 error_reporting(E_ALL);
-ini_set("display_errors", 0);
+ini_set("display_errors", 0); // SOAP errors if this is set to 1
 
 /** @const string local path to php scripts */
 define("LOCAL_WEB_PATH","C:/mirg_inetpub/wwwroot/" ); 
-define("LOCAL_ROOT_PATH",LOCAL_WEB_PATH."casimir/game/" );
+define("LOCAL_ROOT_OFFSET","");
 
 /** @const string external http path to game server php scripts */
-define("EXTERNAL_ROOT_PATH","http://chivm.soi.city.ac.uk/casimir/game/" );
+define("EXTERNAL_WEB_PATH","http://chivm.soi.city.ac.uk/" );
+
 
 /** @const string local backup directory for songs played by the users */
-// define("RUNTIME_DATA_PATH", LOCAL_WEB_PATH."casimir/data/runtime/" );
+define("RUNTIME_DATA_PATH", LOCAL_WEB_PATH."casimir/data/runtime/" );
 
 // MySql Connection
 define("MYSQL_HOST",'XXX');
@@ -22,6 +23,9 @@ define("MYSQL_NAME",'casimir_api');
 /*
  * End of the user input part
  */
+
+define("LOCAL_ROOT_PATH",LOCAL_WEB_PATH. LOCAL_ROOT_OFFSET );
+define("EXTERNAL_ROOT_PATH", EXTERNAL_WEB_PATH . LOCAL_ROOT_OFFSET );
 
 // Paths to Clients, tools, library
 define("SERVER_PATH", EXTERNAL_ROOT_PATH . "server/ooo/"); //Path to the server folder. 

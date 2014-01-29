@@ -12,7 +12,7 @@ define("CLIENT_COMPILED", 0);
 // local and web paths
 /** @const string local path to php scripts */
 define("LOCAL_WEB_PATH","C:/mirg_inetpub/wwwroot/" ); 
-define("LOCAL_ROOT_OFFSET","casimir/game/");
+define("LOCAL_ROOT_OFFSET","");
 
 /** @const string external http path to casimir php scripts */
 define("EXTERNAL_WEB_PATH","http://chivm.soi.city.ac.uk/" );
