@@ -128,10 +128,10 @@ class Song extends dbMappedObject{
         } else {
             
             // save temporary copy of song, and blacklist if it fails
-            if (!$this->saveAudio()){
-                return false;
-            }
-            
+//            if (!$this->saveAudio()){
+//                return false;
+//            } 
+           
             $M = new MySQL();
             $a = array('globalId' => $this->id);
             $M->insert($a,'song.'.$songTable);
