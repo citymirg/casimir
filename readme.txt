@@ -13,8 +13,11 @@ To install, please use the following steps:
 *Unzip / decompress the Archives "LimeJS" and "Zend" into the toolboxes folder
 *Import the database in install/database_dist.zip into your mysql database
 
-*Insert the path and MYSQL user information into the following three files:
-->camir_gameClient/configClient.php
-->camir_gameServer/config.php
-->camir_gameServer/config.php
-->server/ooo/configServer.php
+* Copy the following three files gtom their equivalents starting with an underscore _():
+camir_gameClient/_configClient.php ->camir_gameClient/configClient.php
+camir_gameServer/_config.php->camir_gameServer/config.php
+server/ooo/_configServer.php->server/ooo/configServer.php
+
+*Insert the path and MYSQL user information into the copied files
+
+You should now be able to visit camir_gameClient/index.php 
